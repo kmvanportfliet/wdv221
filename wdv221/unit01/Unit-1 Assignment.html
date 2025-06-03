@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV221 Intro Javascript</title>
+
+<style>
+
+div#container	{
+	width:960px;
+	margin:auto;
+	padding:10px;
+	background-color:white;	
+	border:thin solid black;
+}
+
+
+</style>
+
+<script>
+	function doTasks()
+	{
+		// Task 1: header
+		//creates h1 element and adds to top of page
+		var addHeader = document.createElement('h1');
+		addHeader.innerHTML = 'Assignment 1, DUE: 06/08/2025';
+		//inserts at beginning of body
+		document.body.prepend(addHeader);
+
+		// Task 2: name and major
+		var myInformation = document.createElement('p');
+		myInformation.innerHTML = "Kevin Van Portfliet, Major: CIS";
+		document.getElementById("container").appendChild(myInformation);
+		//logs to console
+		console.log("Kevin Van Portfliet, Major: CIS");
+
+		// Task 3: alert//shows
+		alert('You are on your way to working with Javascript');
+
+	}
+	//https://www.w3schools.com/jsref/event_onload.asp
+	//only way I could figure out how to do this was to make a function. I found the tasks not to be very specific.
+	//basically not sure what the exact goal was here.
+	window.onload = doTasks;
+</script>
+
+
+
+</head>
+
+<body>
+<div id="container">
+
+    <h1>WDV221 Intro Javascript</h1>
+    <h2>Introduction to Javascript - Assignment 1</h2>
+
+    <p>Tasks:</p>
+    <p>1. The instructions are in the code.</p>
+    <p>2. Create a run time script that will display your name and major on the page AND on the console log.</p>  
+	<p>3. Fix the run time script on the bottom of this page.</p>
+    
+
+	
+
+    
+</div>
+
+</body>
+</html>
