@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV221 Intro Javascript - Variables and Data Types Assignment</title>
+
+	<style>
+
+	body {background-color:rgb(224, 219, 208);
+	}
+
+	.highlightTitle	{
+		font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+		font-style:italic;
+		font-size:14px;
+		text-decoration:underline;
+		color:#096;
+	}
+	</style>
+</head>
+
+	<body>
+		<h2>WDV221 Intro Javascript</h2>
+		<h2>Kevin VP</h2>
+		<h3>Unit-2 - Variables Assignment</h3>
+		<h4>Due: 06/08/2025</h4>
+		<hr>
+		<p>Exercises</p>
+		<p id ="schoolName"></p>
+		<p id ="courseName"></p>
+		<p id ="testScore"></p>
+		<p id ="courseGrade"></p>
+		<p id ="courseCompleted"></p>
+		<p id ="charCount"></p>
+		<p id ="upperCaseName"></p>
+		<p id ="containsWDV"></p>
+
+			<script>
+				//#1: String variable school name and assigns it dmacc
+				let schoolName = "DMACC";
+				//#2: define string variable course name and assigns it WDV221 Intro Javascript
+				let courseName = "WDV221 Intro Javascript";
+				//#3: define number variable test score and assigns it 100
+				let testScore = 100.00;
+				//#4: numberic variable course grade and assigns it no value
+				let courseGrade;
+				//#5: boolean variable course completed and assigns it false value
+				let courseCompleted = false;
+				//:displays value of each variable in the paragraph 
+				document.getElementById("schoolName").innerHTML = "School Name: " + schoolName;
+				document.getElementById("courseName").innerHTML = "Course Name: " + courseName;
+				document.getElementById("testScore").innerHTML = "Test Score: " + testScore;
+				document.getElementById("courseGrade").innerHTML = "Course Grade: " + courseGrade;
+				document.getElementById("courseCompleted").innerHTML = "Course Completed: " + courseCompleted;
+				//:displays numb of char count in the course name
+				document.getElementById("charCount").innerHTML = "Character Count: " + courseName.length;
+				//:displays uppercase course name
+				document.getElementById("upperCaseName").innerHTML = "Uppercase Name: " + courseName.toUpperCase();
+				//checks if course name contains WDV
+				document.getElementById("containsWDV").innerHTML = "Contains WDV: " + courseName.includes("WDV");
+			</script>
+
+	</body>
+</html>
