@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <title>WDV221 Unit 5, Event Handler</title>
+        <!--my css for my website-->
+        <link rel = "stylesheet" href = "../CSSMATTVANP.CSS">
+    </head>
+
+    <body onload="pageLoad()">
+        <h1>WDV221 Unit 5, Event Handler</h1>
+        <h2>Date: 06/17/2025; Due: 06/23/2025</h2>
+        
+        <!--html event handler: onclick-->
+        <button onclick="showAlert()">Click Here!!!!</button>
+        <br><br>
+
+        <!-- onchange: select color-->
+         <label for="backGroundColorSelect">Background Color Change:</label>
+            <select id="backGroundColorSelect">
+                <option value="">Pick a Color</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="yellow">Yellow</option>
+                <option value="orange">Orange</option>
+                <option value="violet">Violet</option>
+                <option value="black">Black</option>
+                <option value="white">White</option>
+            </select>
+         <br><br>
+
+         <!-- Hover Box-->
+         <div id="hoverBox"> Hover</div>
+
+        <script>
+            function showAlert()
+            {
+                alert("Button has been Clicked");
+            }
+
+            function pageLoad()
+            {
+                console.log("Page has been loaded.");
+            }
+
+            //javascript event handlers
+            const hoverBox = document.getElementById("hoverBox");
+            
+            hoverBox.onmouseover = function()
+            {
+                hoverBox.style.backgroundColor = "red";
+                hoverBox.textContent = "!!!!!!!!!!!!!! Hovering !!!!!!!!!";
+            };
+
+            hoverBox.onmouseout = function()
+            {
+                hoverBox.style.backgroundColor = "";
+                hoverBox.textContent = "Hover here";
+            };
+
+            document.getElementById("backGroundColorSelect").onchange = function()
+            {
+                document.body.style.backgroundColor = this.value;
+                console.log("Color has been changed to: ", this.value);
+            };
+
+        </script>
+
+    </body>
+</html>
