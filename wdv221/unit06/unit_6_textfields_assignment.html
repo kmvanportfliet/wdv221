@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>WDV221 Intro Javascript - Operators and Textfields Assignment</title>
+
+  <style>
+
+    body {background-color:#d5c2c2;
+    }
+
+      .highlightTitle	
+      {
+        font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+        font-style:italic;
+        font-size:14px;
+        text-decoration:underline;
+        color:#096;
+      }
+
+    input[type="text"]
+    {
+      margin-left: 10px;
+    }
+  </style>
+
+</head>
+
+  <body>
+    <h2>WDV221 Intro Javascript</h2>
+    <h3>Unit-6 Operators and Textfields - Assignment</h3>
+    <h3>Date: 06/23/2025, DUE: 06/29/3035</h3>
+    <hr />
+    <!--
+    <p>Please complete the following exercises on this page. When complete post this page to your  server. Make a link in your WDV221 homework  page for this assignment. </p>
+    <p>Include a comment in each script with the exercise number and a description of what the script is supposed to do.</p>
+    <p>Using Blackboard submit this  Assignment.</p>
+    <hr />
+    <h3>Instructions</h3>
+    <p>Use the form fields for the input values. For each of the following exercises create a function what will be activated by the button. Do not forget our discussion on button types. </p>
+    -->
+    <form name="form1" method="post" action="javascript:void(0);">
+      <p>Enter a Number for the first value:
+        <input type="text" id="firstValue" />
+      </p>
+      <p>Enter a Number for the second value:
+        <input type="text" id="secondValue" />
+      </p>
+
+      <p>1.
+        <input type="button" id="buttonDisplayValue1" value="Display Value 1"/>
+        Display Value 1
+        <input type="text" id="displayValue1"/>
+      </p>
+
+      <p>2.
+        <input type="button" id="buttonDisplayValue2" value="Display Value 2"/>
+        Display Value 2
+        <input type="text" id="displayValue2"/>
+      </p>
+
+      <p>3.
+        <input type="button" id="buttonDisplayMultipyValues" value="Multiply"/>
+        Display Value 3
+        <input type="text" id="multiplyValues"/>
+      </p>
+
+      <p>4.
+        <input type="button" id="buttonDisplayAddValues" value="Add"/>
+        Display Value 4
+        <input type="text" id="addValues"/>
+      </p>
+
+      <p>5.
+      <input type="text" id="countStartNumber"/>
+      <input type="button" id="buttonSetCount" value="Set Count"/>
+        Sets the starting value for count. (In and De work below without entering a number)
+      </p>
+      <p>
+      <input type="button" id="buttonIncrement" value="Increment"/>
+        Increment the count.
+      </p>
+      <p>
+      <input type="text" id="outPutCount"/>
+      </p>
+
+
+      <p>
+        <input type="button" id="buttonDecrement" value="Decrement"/>
+        Decrement the count.
+      </p>
+
+      <p>
+        <input type="button" id="buttonReset" value="Reset"/>
+        Reset all values.
+      </p>
+    </form>
+
+    <script>
+      let count = 0;
+      document.getElementById("buttonDisplayValue1").addEventListener("click", () =>
+      {
+        const value1 = document.getElementById("firstValue").value
+        document.getElementById("displayValue1").value = value1
+      });
+
+      document.getElementById("buttonDisplayValue2").addEventListener("click", () =>
+      {
+        const value2 = document.getElementById("secondValue").value
+        document.getElementById("displayValue2").value = value2
+      });
+
+      document.getElementById("buttonDisplayMultipyValues").addEventListener("click", () =>
+      {
+        const value1 = parseFloat(document.getElementById("firstValue").value)
+        const value2 = parseFloat(document.getElementById("secondValue").value)
+        document.getElementById("multiplyValues").value = value1 * value2
+      });
+
+      document.getElementById("buttonDisplayAddValues").addEventListener("click", () =>
+      {
+        const value1 = parseFloat(document.getElementById("firstValue").value)
+        const value2 = parseFloat(document.getElementById("secondValue").value)
+        document.getElementById("addValues").value = value1 + value2
+      });
+
+      document.getElementById("buttonSetCount").addEventListener("click", () =>
+      {
+        const input = document.getElementById("countStartNumber").value;
+        const parsed = parseInt(input);
+        if (!isNaN(parsed))
+        {
+          count = parsed;
+          document.getElementById("outPutCount").value = count;
+        }
+        else
+        {
+          alert("Invalid Input");
+        }
+      });
+
+      document.getElementById("buttonIncrement").addEventListener("click", () =>
+      {
+        count++;
+        document.getElementById("outPutCount").value = count;
+      });
+
+      document.getElementById("buttonDecrement").addEventListener("click", () =>
+      {
+        count--;
+        document.getElementById("outPutCount").value = count;
+      });
+
+      document.getElementById("buttonReset").addEventListener("click", () =>
+      {
+        document.getElementById("firstValue").value = "";
+      document.getElementById("secondValue").value = "";
+      document.getElementById("displayValue1").value = "";
+      document.getElementById("displayValue2").value = "";
+      document.getElementById("multiplyValues").value = "";
+      document.getElementById("addValues").value = "";
+      document.getElementById("countStartNumber").value = "";
+      document.getElementById("outPutCount").value = "";
+      count = 0;
+      });
+    </script>
+  
+  </body>
+</html>
