@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>WDV221 Intro Javascript</title>
+  <script>
+    //exercise 1
+    //func to compare the two input fields
+    //case-sensitive comparison and display results
+    function compareNames(event)
+    {
+      event.preventDefault();
+      //gets names  and compares results that area all lowercase
+      const name1 = document.getElementById('value1').value.trim().toLowerCase();
+      const name2 = document.getElementById('value2').value.trim().toLowerCase();
+      const resultSpan = document.getElementById('result');
+
+      //checks if theres input in both fields and then does the compare
+      if (name1 && name2)
+      {
+        resultSpan.innerHTML = (name1 === name2) ? 'The names are the same.' : 'The names are not the same.';
+      }
+      else
+      {
+        resultSpan.innerHTML = 'Please enter both names.';
+      }
+    }
+
+    //exercise 2
+    //func to reset and clear form
+    function resetForm()
+    {
+      document.getElementById('form1').reset();
+      document.getElementById('result').innerHTML = '';
+    }
+
+    //event listeners setup for after page loads
+    window.onload = function ()
+    {
+      //attach coompareNames fuin to form submit event
+      document.getElementById('form1').addEventListener('submit', compareNames);
+      //attach resetForm func to reset button
+      document.getElementById('button').addEventListener('click', resetForm);
+    }
+  </script>  
+
+</head>
+
+<body>
+  <h2>WDV221 Intro Javascript</h2>
+  <h3>Unit -7 Comparison and IF Statements - Compare Names Assignment </h3>
+  <hr />
+  <p>Please complete the following exercises on this page. When complete post this page to your server. Make a link in
+    your WDV221 homework page for this assignment. </p>
+  <p>Include a comment in each script with the exercise number and a description of what the script is supposed to do.
+  </p>
+  <p>Using Blackboard submit this Assignment.</p>
+  <hr />
+  <form id="form1" name="form1" method="post" action="">
+    <p>Name 1:
+      <input type="text" name="value1" id="value1" />
+    </p>
+    <p>Name 2:
+      <input type="text" name="value2" id="value2" />
+    </p>
+    <!--<p><input type="submit" value="Compare Names" place holder spann that injects feedback into html page w/o reloading/></p>-->
+    <p>Result: <span id="result"></span></p>
+    <p><input type="submit" value="Compare Names" />
+    </p>
+    <p>
+      <input type="reset" name="Reset" id="button" value="Reset" />
+    </p>
+  </form>
+  <!--
+<h3>Instructions:</h3>
+<ol>
+  <li>Create a function called compareNames( ).</li>
+  <li>The function will compare the two input values from the form above.</li>
+  <li>The comparison should be <strong>case insensitive.</strong></li>
+  <li>The results should display &quot;Same&quot; or &quot;Different&quot;.</li>
+  <li>Use a span element and its .innerHTML property to display the results.</li>
+  <li>Provide a reset function that will reset the form and results.</li></ol>
+   -->
+</body>
+
+</html>
