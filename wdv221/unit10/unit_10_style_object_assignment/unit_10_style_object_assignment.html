@@ -1,0 +1,185 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>WDV221 Style Object-CSS Interactions In Class Exercises</title>
+  <style type="text/css">
+    .style1 
+    {
+      color: #FF0000;
+    }
+    #sale 
+    {
+      font-size: 16px;
+    }
+    .bordered 
+    {
+      border: 2px solid black;
+      padding: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>WDV221 Intro Javascript</h1>
+  <!------>
+  <h3 id="heading">Style Object - CSS Interactions - In Class Exercises</h3>
+  <p>Please modify this page to create the following Dynamic HMTL effects. </p>
+<!------>
+  <p id="paragraph1">1. Click this paragraph to change the font color to red.</p>
+  <!------>
+  <p id="paragraph2">2. Mousever this paragraph to center the H3 element containing &quot;CSS Interactions&quot;.</p>
+
+  <p>3. Click the button to left align the H3 element. </p>
+  <p>
+    <label>
+      <input type="submit" name="button" id="button" value="Submit" />
+    </label>
+  </p>
+  <!------>
+  <p id="paragraph4">4. Mouseover this paragraph to change the font to a font of you choice. 5. Click on this paragraph to return the
+    font to the default font.</p>
+    <!------>
+  <p>6. Click on the button to make the word <span id="sale">SALE</span> font size 24. </p>
+  <p>
+    <label>
+      <input type="submit" name="button2" id="button2" value="Submit" />
+    </label>
+  </p>
+
+  <p>7. Click on the button to return the word to its original size.</p>
+
+  <p>
+    <label>
+      <input type="submit" name="button3" id="button3" value="Submit" />
+    </label>
+  </p>
+  <!------>
+  <p id="paragraph8">8. Use an eventhandler of your choice on this paragraph to make the paragraph background color yellow. </p>
+<!------>
+  <p id="paragraph9">9. Use an onclick event to hide the Frog image shown below.(click this paragraph)</p>
+
+  <p>10. Use the following button to make the Frog image shown below reappear.</p>
+  <p>
+    <input type="submit" name="button4" id="button4" value="Submit" />
+  </p>
+
+  <p>11. Mouseover the Frong image to make its height and width double its original size. </p>
+  <p><img src="frog.jpg" id="frog" width="100" height="100"/></p>
+
+  <p>12. Use a click event on the Frog image to make it return to original size. </p>
+<!------>
+  <p id="paragraph13">13. Doubleclick on this paragraph to place a border around this paragraph.</p>
+  <!------>
+  <p id="paragraph14">14. Use an event handler of your choice to remove the border from the previous paragraph. (just hover over this paragraph)</p>
+<!------>
+  <p id="paragraph15">15. Mouseover this paragraph to turn its background color to green. When you mouseoff the paragraph return it to
+    its normal color. </p>
+  
+  <script>
+    //1
+    document.getElementById("paragraph1").onclick = function ()
+    {
+      this.style.color = "red";
+    };
+
+    //2
+    document.getElementById("paragraph2").onmouseover = function ()
+    {
+      document.getElementById("heading").style.textAlign = "center";
+    };
+
+    //3
+    document.getElementById("button").onclick = function ()
+    {
+      document.getElementById("heading").style.textAlign = "left";
+    };
+
+//paragraph 4
+    const paragraph4 = document.getElementById("paragraph4");
+    paragraph4.onmouseover = function ()
+    {
+      this.style.fontFamily = "Courier New, monospace";
+    };
+
+//paragraph 5
+    paragraph4.onclick = function ()
+    {
+      this.style.fontFamily = "";
+    };
+
+//paragraph 6
+    document.getElementById("button2").onclick = function ()
+    {
+      document.getElementById("sale").style.fontSize = "24px";
+    };
+
+//paragraph 7
+    document.getElementById("button3").onclick = function ()
+    {
+      document.getElementById("sale").style.fontSize = "16px";
+    };
+
+//8
+    document.getElementById("paragraph8").onmouseover = function ()
+    {
+      this.style.backgroundColor = "yellow";
+    };
+
+//9 
+    const frog =document.getElementById("frog");
+    document.getElementById("paragraph9").onclick = function ()
+    {
+      frog.style.display = "none";
+    };
+
+//10
+    document.getElementById("button4").onclick = function ()
+    {
+      frog.style.display = "inline";
+    };
+
+//11
+    frog.onmouseover = function ()
+    {
+      this.style.height = "200px";
+      this.style.width = "200px";
+    };
+
+//12
+    frog.onclick = function ()
+    {
+      this.style.height = "100px";
+      this.style.width = "100px";
+    };
+
+//13 
+    const paragraph13 = document.getElementById("paragraph13");
+    paragraph13.ondblclick = function ()
+    {
+      this.classList.add('bordered');
+    };
+
+//14
+   document.getElementById('paragraph14').onmouseover = function () 
+   {
+      paragraph13.classList.remove('bordered');
+    };
+
+//15
+    const paragraph15 = document.getElementById('paragraph15');
+    paragraph15.onmouseover = function () 
+    {
+    this.style.backgroundColor = 'green';
+    };
+    paragraph15.onmouseout = function () 
+    {
+    this.style.backgroundColor = '';
+    };
+
+  </script>
+</body>
+
+</html>
