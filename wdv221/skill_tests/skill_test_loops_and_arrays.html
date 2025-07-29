@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>WDV221 Intro Javascript</title>
+
+	<script>
+
+		var products = ["Garden Trowel", "Yard Spade", "Planting Spade"];
+		var productNumber = ["gt200", "yard-1", "plant-4"];
+
+		var selectionFactors = ["Price", "Quality", "Reviews", "Pictures", "Because I was bored and shopping"];
+
+		var references = ["Field and Stream", "Home and Garden", "Plant Life"];
+
+		//populate menu w/ options
+		function productionSelection() 
+		{
+			var select = document.getElementById("selectProduct");
+			for (var i = 0; i < products.length; i++) {
+				var option = document.createElement("option");
+				option.text = products[i];
+				option.value = productNumber[i];
+				select.appendChild(option);
+			}
+		}
+
+
+		//radio buttions creation
+		function createRadioButtons() 
+		{
+			var container = document.getElementById("radioContainer");
+			for (var i = 0; i < selectionFactors.length; i++) 
+			{
+				var label = document.createElement("label");
+				var radio = document.createElement("input");
+				radio.type = "radio";
+				radio.name = "selectionFactor";
+				radio.value = selectionFactors[i];
+				label.appendChild(radio);
+				label.appendChild(document.createTextNode(" " + selectionFactors[i]));
+				container.appendChild(label);
+				container.appendChild(document.createElement("br"));
+			}
+		}
+
+		//checkbox creation
+		function createCheckboxes() 
+		{
+			var container = document.getElementById("checkboxContainer");
+			for (var i = 0; i < references.length; i++) {
+				var label = document.createElement("label");
+				var checkbox = document.createElement("input");
+				checkbox.type = "checkbox";
+				checkbox.name = "reference";
+				checkbox.value = references[i];
+				label.appendChild(checkbox);
+				label.appendChild(document.createTextNode(" " + references[i]));
+				container.appendChild(label);
+				container.appendChild(document.createElement("br"));
+			}
+		}
+
+		//display json for object
+		function displayJSONitem() 
+		{
+			var specialItem = '{"itemName":"Magic Beans", "price":10.00, "inventoryCount":1, "isDiscontinued":true}';
+			var item = JSON.parse(specialItem);
+			var output = "<p>Item Name: " + item.itemName + "</p>";
+			output += "<p>Price: $" + item.price + "</p>";
+			output += "<p>Count: " + item.inventoryCount + "</p>";
+			output += "<p>Limited Time Offer: " + item.isDiscontinued + "</p>";
+
+			document.getElementById("specialOffer").innerHTML = output;
+		}
+
+
+		//fun funcs when page loads
+		window.onload = function () 
+		{
+			productionSelection();
+			createRadioButtons();
+			createCheckboxes();
+			displayJSONitem();
+		};
+
+	</script>
+</head>
+
+
+<body>
+	<h1>WDV221 Intro Javascript</h1>
+	<h2>Skill Test - Loops and Arrays</h2>
+
+	<form name="form1" method="post" action="">
+		<fieldset>
+			<!--moved here-->
+			<legend>Your Input Matters</legend>
+	
+			<p>
+				<label for="selectProduct">1. Which product did you purchase?</label><br>
+				<select name="selectProduct" id="selectProduct"></select>
+			</p>
+	
+			<p>2. Please choose the primary factor in why you purchased our product:</p>
+			<div id="radioContainer"></div>
+	
+			<p>3. How did your hear about us? Please select all that apply:</p>
+			<div id="checkboxContainer"></div>
+	
+			<p>
+				<input type="submit" name="button" id="button" value="Submit">
+				<input type="reset" name="button2" id="button2" value="Reset">
+			</p>
+		</fieldset>
+	</form>
+
+
+
+	<h2>4. Special Item Offer!</h2>
+	<div id="specialOffer"></div>
+
+	<script>
+		// Note: The specialItem is a JSON String. Convert to JSON object literal
+		// then display each key value pair in a paragraph.
+		var specialItem = '{"itemName":"Magic Beans", "price":10.00, "inventoryCount":1, "isDiscontinued":true}';
+
+		/*
+		  Output should look like the following:
+			Item Name: Magic Beans
+			Price: $10
+			Count: 1
+			Limited Time Offer: true
+	  
+		  Note: For this assignment, I am not expecting the currency library.
+		  You can just use "$" + price for the output.
+		*/
+	</script>
+	<!--
+<h3>Instructions:</h3>
+<p>1. Use the products array and the productNumber array to dynamically populate the select menu. Include the productNumbers as value atttributes.</p>
+<p>2. Use the selectionFactors array to dynamically create a set of radio buttons. </p>
+<p>3. Use the references array to dynamically create a set of check boxes. </p>
+<p>4. Convert the specialItem JSON String to a JSON Object and then display the data under the "4. Special Item Offer!" header.</p>
+-->
+</body>
+
+</html>
