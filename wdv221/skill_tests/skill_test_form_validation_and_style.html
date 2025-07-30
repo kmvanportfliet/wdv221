@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!--reorganized//declae html-->
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>form validation and style</title>
+
+	<!--added css-->
+	<style>
+		#userEmail 
+		{
+			padding: 5px;
+		}
+
+		#passwordStrength 
+		{
+			font-weight: bold;
+			margin-left: 10px;
+		}
+
+	</style>
+
+
+
+
+
+	<!--added javascript-->
+	<script>
+		//calls submit button when clicked and validates the email address
+		function ValidateForm() 
+		{
+			const emailField = document.getElementById("userEmail");
+			const errorSpan = document.getElementById("errorMessage");
+			const email = emailField.value;
+
+			//if @ missing is error and red border
+			if (!email.includes("@"))
+			{
+				errorSpan.textContent = "ERROR!!!!!!!!!!: Email must include @ symbol";
+				emailField.style.border = "2px solid red";
+			}
+			//if email is valid green border
+			else
+			{
+				errorSpan.textContent = "";
+				emailField.style.border = "2px solid green";
+			}
+		}
+
+		//calls every char in password field input, checks strenght and length
+		function checkPasswordStrength()
+		{
+			const passwordField = document.getElementById("userPassword").value;
+			const strengthSpan = document.getElementById("passwordStrength");
+
+			if (passwordField.length < 5)
+			{
+				strengthSpan.textContent = "weak";
+				strengthSpan.style.color = "red";
+			}
+			else if (passwordField.length < 10)
+			{
+				strengthSpan.textContent = "Medium";
+				strengthSpan.style.color = "orange";
+			}
+			else
+			{
+				strengthSpan.textContent = "Strong";
+				strengthSpan.style.color = "green";
+			}
+		}
+
+		//calls reset button and clears form
+		function resetForm()
+		{
+			document.getElementById("userEmail").style.border = "";
+			document.getElementById("errorMessage").textContent = "";
+			document.getElementById("passwordStrength").textContent = "";
+		
+		}
+	</script>
+
+	</head>
+
+	<body>
+
+	<!--moved here/page header-->
+	<h1 id="Heading1" class="">WDV221</h1>
+
+	<h2> Create New User </h2>
+
+	<!--form for email and password-->
+	<form id="myForm">
+
+		<p>User Email:
+			<!--email border feedback-->
+			<input type="text" id="userEmail" /> 
+		</p>
+	
+	
+		<!--changed// password input with strenght check-->
+		<p>User Password:
+			<input type="password" id="userPassword" onkeyup="checkPasswordStrength()" />
+			<span id="passwordStrength"></span>
+		</p>
+	
+		<!--submit and reset buttons-->
+		<input type="button" onclick="ValidateForm();" value="submit" />
+		<!--fixed-->
+		<input type="reset" value="reset" onclick="resetForm()" />
+		<span id="errorMessage"></span>
+	</form>
+	<!--
+<h2> Instructions </h2>
+<ol>
+	<li>Create an email validation function that is triggered from the button click even and does the following:</li>
+	<ol>
+		<li>
+			Gets the email address entered in the text box and performs validation check for an "@"
+		</li> 
+		<li>
+			Gives an error message if the email is missing an "@". The message should be displayed in the errorMessage span.
+		</li>
+		<li>
+			Sets a solid 2px red border around the userEmail text box
+		</li>
+		<li>
+			Clears the errorMessage span and resets the border of userEmail if there are no errors. This should also happen when the reset button is pressed.
+		</li>  
+	</ol>
+	<li>
+		Create a function called checkPasswordStrength that triggers on the keyUp of the userPassword text box.
+	</li>
+	<ol>
+		<li>If the length of the password is less than 5 characters display the word "Weak" in red in the passwordStrength span</li>
+		<li>If the length of the password is greater than 5 characters but less than 10 display the word "Medium" in yellow in the passwordStrength span</li>
+		<li>If the length of the password is greater than 10 characters display the word "Strong" in green in the passwordStrength span</li>
+	</ol>
+</ol>
+-->
+</body>
+
+</html>
